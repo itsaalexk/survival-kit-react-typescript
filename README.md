@@ -8,7 +8,7 @@ Para React, TypeScript le permite trabajar de una manera mucho más ordenada, tr
 
 En esta primera parte, trataremos de manera muy básica, algunos aspectos esenciales de TypeScript.
 
-Por ejemplo, podemos tener una constante que es un string, sobre la cual queramos definir un number. TypeScript nos dirá de inmediato que habrá un error en esta constante. Recordar que VSCODE nos mostrará el error y en especial si se utiliza la extensión [Error Lens](https://marketplace.visualstudio.com/items?
+Por ejemplo, podemos tener una constante que es un <b> string </b>, sobre la cual queramos definir un <b> number </b>. TypeScript nos dirá de inmediato que habrá un error en esta constante. Recordar que VSCODE nos mostrará el error y en especial si se utiliza la extensión [Error Lens](https://marketplace.visualstudio.com/items?
 
 
 <code> itemName=usernamehw.errorlens). const unaConstanteSimple: string = 32 // error => El tipado 'number' no se puede asignar al tipado 'string' </code>
@@ -23,22 +23,27 @@ En una función, el tema es similar, aunque debemos considerar que se le agregan
       return argumento.toUpperCase()
     }</code>
 
-En JavaScript sabemos que el argumento que ingresará hará que el método toUpperCase convierta el argumento en mayúscula. No obstante, qué sucede si ingresamos un number o incluso, una función en el argumento?
-unaFuncion(32)
+En JavaScript sabemos que el argumento que ingresará hará que el método `toUpperCase` convierta el argumento en mayúscula. No obstante, qué sucede si ingresamos un number o incluso, una función en el argumento?
+
+<code> unaFuncion(32)
 unaFuncion(function otraFuncion() {
   return 32
-})
-// Error => Uncaught TypeError: argumento.toUpperCase is not a function
+}) 
+// Error => Uncaught TypeError: argumento.toUpperCase is not a function </code>
 Recibiremos un error en ambos casos. Bueno, aquí TypeScript comienza a tomar sentido, porque vamos a específicar que la función solo podrá recibir un string.
-// una función que retorna un argumento en mayúscula
+
+`// una función que retorna un argumento en mayúscula
 function unaFuncion(argumento: string) {
   return argumento.toUpperCase()
-}
+}`
+
 En este caso, estamos siendo muy específicos en que el argumento siempre deberá será un string. Aquí si intentamos ingresar un number o una función como el ejemplo anterior, nos aparecerá un error similar al del primer ejemplo.
 Al mismo tiempo, una función, como mencioné, también se puede tipar el retorno. Por defecto, TypeScript (y también JavaScript si posicionas el mouse sobre la función) nos dirá que la función unaFuncion retornará un string. Pero, para este ejemplo, queremos ser más específicos y queremos ponerlo.
+`
 function unaFuncion(argumento: string): string {
   return argumento.toUpperCase()
 }
+`
 Finalmente, una última prueba. Si cambiamos el return por Number(argumento), también tendremos un error. Porque ya habíamos dicho que el return debía ser un string.
 Luego de este pequeño ejemplo, podremos avanzar un poco más en esta guía básica.
 
